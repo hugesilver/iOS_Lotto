@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		E2254A7F2AC2AF7F000EE651 /* LottoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A7E2AC2AF7F000EE651 /* LottoApp.swift */; };
-		E2254A812AC2AF7F000EE651 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A802AC2AF7F000EE651 /* ContentView.swift */; };
+		E2254A812AC2AF7F000EE651 /* GenerateNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A802AC2AF7F000EE651 /* GenerateNumberView.swift */; };
 		E2254A832AC2AF80000EE651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2254A822AC2AF80000EE651 /* Assets.xcassets */; };
 		E2254A862AC2AF80000EE651 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2254A852AC2AF80000EE651 /* Preview Assets.xcassets */; };
 		E2254A902AC2AF81000EE651 /* LottoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A8F2AC2AF81000EE651 /* LottoTests.swift */; };
 		E2254A9A2AC2AF81000EE651 /* LottoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A992AC2AF81000EE651 /* LottoUITests.swift */; };
 		E2254A9C2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A9B2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift */; };
+		E278D9CD2AFA191100427617 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9CC2AFA191100427617 /* BottomSheetView.swift */; };
+		E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D02AFA1CF000427617 /* ContentView.swift */; };
+		E278D9D32AFA1FDC00427617 /* LatestLottoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D22AFA1FDC00427617 /* LatestLottoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		E2254A7B2AC2AF7F000EE651 /* Lotto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lotto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2254A7E2AC2AF7F000EE651 /* LottoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoApp.swift; sourceTree = "<group>"; };
-		E2254A802AC2AF7F000EE651 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E2254A802AC2AF7F000EE651 /* GenerateNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateNumberView.swift; sourceTree = "<group>"; };
 		E2254A822AC2AF80000EE651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2254A852AC2AF80000EE651 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2254A8B2AC2AF81000EE651 /* LottoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,9 @@
 		E2254A952AC2AF81000EE651 /* LottoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2254A992AC2AF81000EE651 /* LottoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoUITests.swift; sourceTree = "<group>"; };
 		E2254A9B2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E278D9CC2AFA191100427617 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		E278D9D02AFA1CF000427617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E278D9D22AFA1FDC00427617 /* LatestLottoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestLottoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				E2254A7E2AC2AF7F000EE651 /* LottoApp.swift */,
-				E2254A802AC2AF7F000EE651 /* ContentView.swift */,
+				E2254A802AC2AF7F000EE651 /* GenerateNumberView.swift */,
 				E2254A822AC2AF80000EE651 /* Assets.xcassets */,
 				E2254A842AC2AF80000EE651 /* Preview Content */,
+				E278D9CC2AFA191100427617 /* BottomSheetView.swift */,
+				E278D9D02AFA1CF000427617 /* ContentView.swift */,
+				E278D9D22AFA1FDC00427617 /* LatestLottoView.swift */,
 			);
 			path = Lotto;
 			sourceTree = "<group>";
@@ -257,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2254A812AC2AF7F000EE651 /* ContentView.swift in Sources */,
+				E2254A812AC2AF7F000EE651 /* GenerateNumberView.swift in Sources */,
 				E2254A7F2AC2AF7F000EE651 /* LottoApp.swift in Sources */,
+				E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */,
+				E278D9D32AFA1FDC00427617 /* LatestLottoView.swift in Sources */,
+				E278D9CD2AFA191100427617 /* BottomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +437,13 @@
 				DEVELOPMENT_TEAM = 42NW282TDP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +468,13 @@
 				DEVELOPMENT_TEAM = 42NW282TDP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

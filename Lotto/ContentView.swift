@@ -2,20 +2,31 @@
 //  ContentView.swift
 //  Lotto
 //
-//  Created by 김태은 on 2023/09/26.
+//  Created by 김태은 on 11/7/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isBottomSheetOpen = false
+    @State private var dimOpacity: Double = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        GeometryReader { geometry in
+            ZStack {
+                GenerateNumberView()
+                Color.black.opacity(self.dimOpacity)
+                    .onTapGesture {
+                        self.isBottomSheetOpen = false
+                        self.dimOpacity = 0
+                    }
+                    .ignoresSafeArea()
+                BottomSheetView(isOpen: $isBottomSheetOpen, maxHeight: geometry.size.height * 0.9, dimOpacity: $dimOpacity) {
+                    LatestLottoView().frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.white)
+                }.ignoresSafeArea(.all)
+            }
         }
-        .padding()
     }
 }
 
