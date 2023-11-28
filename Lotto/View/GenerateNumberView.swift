@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct GenerateNumberView: View {
-    @State private var lottoNumbers: [Int] = [0,0,0,0,0,0]
-    
+    @State private var lottoNumbers: [Int] = [0, 0, 0, 0, 0, 0]
+
     var body: some View {
         VStack {
             Text("로또 번호 생성기")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding()
             HStack {
-                ForEach(lottoNumbers.prefix(6), id: \.self) { number in
+                ForEach(lottoNumbers.sorted(), id: \.self) { number in
                     ball(number: number)
                 }
             }
@@ -30,9 +30,9 @@ struct GenerateNumberView: View {
             .foregroundColor(.black)
             .padding()
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.blue)
+        .background(.blue)
     }
-    
+
     func generateLottoNumbers() {
         var numbers = Set<Int>()
         while numbers.count < 6 {
@@ -41,7 +41,7 @@ struct GenerateNumberView: View {
         }
         lottoNumbers = Array(numbers)
     }
-    
+
     func colors(number: Int) -> Color {
         switch(number) {
         case 0: return Color.black
@@ -52,7 +52,7 @@ struct GenerateNumberView: View {
         default: return Color.green
         }
     }
-    
+
     func ball(number: Int) -> some View {
         return Circle()
             .frame(width: 40, height: 40)
@@ -66,6 +66,8 @@ struct GenerateNumberView: View {
     }
 }
 
-#Preview {
-    GenerateNumberView()
+struct GenerateNumberView_Previews: PreviewProvider {
+    static var previews: some View {
+        GenerateNumberView()
+    }
 }
