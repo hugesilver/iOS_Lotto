@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LatestLottoView: View {
+struct RecentLottoView: View {
     @StateObject var viewModel = WinnerListViewModel()
     @State var recentLottoes: [LottoModel] = []
     
@@ -115,5 +115,5 @@ struct LatestLottoView: View {
 }
 
 #Preview {
-    LatestLottoView()
+    RecentLottoView()
 }

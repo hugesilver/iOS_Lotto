@@ -8,13 +8,13 @@ struct BottomSheetView<Content: View>: View {
     let indicatorHeight: CGFloat = 6
     let indicatorWidth: CGFloat = 60
     let snapRatio: CGFloat = 0.25
-    let minHeightRatio: CGFloat = 0.2
+    let minHeightRatio: CGFloat = 0.1
     
     let maxHeight: CGFloat
     var content: Content
     
     private var minHeight: CGFloat {
-        maxHeight * self.minHeightRatio
+        maxHeight * minHeightRatio
     }
     
     @GestureState private var translation: CGFloat = 0

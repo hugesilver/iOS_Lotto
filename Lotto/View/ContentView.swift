@@ -27,7 +27,7 @@ struct ContentView: View {
                     isOpen: $isBottomSheetOpen,
                     dimOpacity: $dimOpacity,
                     maxHeight: geometry.size.height * 0.9,
-                    content: LatestLottoView()
+                    content: RecentLottoView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(.white)
                 )
