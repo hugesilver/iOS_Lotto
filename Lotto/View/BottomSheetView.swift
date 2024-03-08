@@ -1,20 +1,21 @@
 import SwiftUI
 
-fileprivate enum Constants {
-    static let radius: CGFloat = 16
-    static let indicatorHeight: CGFloat = 6
-    static let indicatorWidth: CGFloat = 60
-    static let snapRatio: CGFloat = 0.25
-    static let minHeightRatio: CGFloat = 0.2
-}
-
 struct BottomSheetView<Content: View>: View {
     @Binding var isOpen: Bool
     @Binding var dimOpacity: Double
     
+    let cornerRadius: CGFloat = 16
+    let indicatorHeight: CGFloat = 6
+    let indicatorWidth: CGFloat = 60
+    let snapRatio: CGFloat = 0.25
+    let minHeightRatio: CGFloat = 0.2
+    
     let maxHeight: CGFloat
-    let minHeight: CGFloat
-    let content: Content
+    var content: Content
+    
+    private var minHeight: CGFloat {
+        maxHeight * self.minHeightRatio
+    }
     
     @GestureState private var translation: CGFloat = 0
     
@@ -23,34 +24,28 @@ struct BottomSheetView<Content: View>: View {
     }
     
     private var indicator: some View {
-        RoundedRectangle(cornerRadius: Constants.radius)
+        RoundedRectangle(cornerRadius: cornerRadius)
             .fill(.gray)
             .frame(
-                width: Constants.indicatorWidth,
-                height: Constants.indicatorHeight
+                width: indicatorWidth,
+                height: indicatorHeight
             ).onTapGesture {
                 self.isOpen.toggle()
                 self.dimOpacity = isOpen ? 0.5 : 0
             }
     }
     
-    init(isOpen: Binding<Bool>, maxHeight: CGFloat, dimOpacity: Binding<Double>, @ViewBuilder content: () -> Content) {
-        self.minHeight = maxHeight * Constants.minHeightRatio
-        self.maxHeight = maxHeight
-        self.content = content()
-        self._isOpen = isOpen
-        self._dimOpacity = dimOpacity
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
-                self.indicator.padding()
+                self.indicator
+                    .padding()
+                
                 self.content
             }
             .background(.white)
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
-            .cornerRadius(Constants.radius)
+            .cornerRadius(cornerRadius)
             .frame(height: geometry.size.height, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))
             .animation(.interactiveSpring(), value: offset)
@@ -58,7 +53,7 @@ struct BottomSheetView<Content: View>: View {
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.height
                 }.onEnded { value in
-                    let snapDistance = self.maxHeight * Constants.snapRatio
+                    let snapDistance = self.maxHeight * self.snapRatio
                     guard abs(value.translation.height) > snapDistance else {
                         return
                     }
@@ -73,13 +68,5 @@ struct BottomSheetView<Content: View>: View {
                 }
             )
         }
-    }
-}
-
-struct BottomSheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        BottomSheetView(isOpen: .constant(false), maxHeight: 600, dimOpacity: .constant(0.0)) {
-            Rectangle().fill(.background)
-        }.edgesIgnoringSafeArea(.all)
     }
 }

@@ -15,16 +15,25 @@ struct ContentView: View {
         GeometryReader { geometry in
             ZStack {
                 GenerateNumberView()
+                
                 Color.black.opacity(self.dimOpacity)
                     .onTapGesture {
                         self.isBottomSheetOpen = false
                         self.dimOpacity = 0
                     }
                     .ignoresSafeArea()
-                BottomSheetView(isOpen: $isBottomSheetOpen, maxHeight: geometry.size.height * 0.9, dimOpacity: $dimOpacity) {
-                    LatestLottoView().frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                BottomSheetView(
+                    isOpen: $isBottomSheetOpen,
+                    dimOpacity: $dimOpacity,
+                    maxHeight: geometry.size.height * 0.9,
+                    content: LatestLottoView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(.white)
-                }.ignoresSafeArea(.all)
+                )
+                
+                
+                .ignoresSafeArea(.all)
             }
         }
     }

@@ -16,30 +16,32 @@ struct LatestLottoView: View {
             VStack {
                 ForEach(sortRecentLotto(), id: \.self) { recentLotto in
                     VStack {
-                        Text("\(recentLotto.drwNoDate) \(recentLotto.drwNo)회 당첨결과")
+                        Text("\(recentLotto.drwNoDate!) \(recentLotto.drwNo!)회 당첨결과")
                             .font(.system(size: 24).bold())
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
                             .padding()
+                        
                         HStack {
-                            ball(number: recentLotto.drwtNo1)
-                            ball(number: recentLotto.drwtNo2)
-                            ball(number: recentLotto.drwtNo3)
-                            ball(number: recentLotto.drwtNo4)
-                            ball(number: recentLotto.drwtNo5)
-                            ball(number: recentLotto.drwtNo6)
+                            ball(number: recentLotto.drwtNo1!)
+                            ball(number: recentLotto.drwtNo2!)
+                            ball(number: recentLotto.drwtNo3!)
+                            ball(number: recentLotto.drwtNo4!)
+                            ball(number: recentLotto.drwtNo5!)
+                            ball(number: recentLotto.drwtNo6!)
                             Image(systemName: "plus")
                                 .resizable()
                                 .frame(width: 22, height: 22)
                                 .font(Font.title.weight(.medium))
                                 .foregroundColor(.black)
-                            ball(number: recentLotto.bnusNo)
+                            ball(number: recentLotto.bnusNo!)
                         }
                     }
                     .padding()
                 }
             }
-        }.onAppear{
+        }
+        .onAppear{
             getRecentLotto()
         }
     }
@@ -73,23 +75,19 @@ struct LatestLottoView: View {
             if recentLottoes.count > 9 || weeksPassed - i < 1 {
                 break
             }
+            
             viewModel.fetchLottoNumbers(drawNumber: weeksPassed - i) { lottoModel in
-                if let lottoModel = lottoModel {
-                    if lottoModel.returnValue == "fail" {
-                        print("데이터 불러오기 실패")
-                    } else {
-                        print("성공 \(i)")
-                        recentLottoes.append(lottoModel)
-                    }
+                if let lottoModel = lottoModel, lottoModel.returnValue == "success" {
+                    recentLottoes.append(lottoModel)
                 } else {
-                    print("LottoModel fetch를 실패하였습니다.")
+                    print("LottoModel fetch 실패")
                 }
             }
         }
     }
     
     func sortRecentLotto() -> [LottoModel] {
-        return recentLottoes.sorted { $0.drwNo > $1.drwNo }
+        return recentLottoes.sorted { $0.drwNo! > $1.drwNo! }
     }
     
     func ball(number: Int) -> some View {
@@ -115,7 +113,6 @@ struct LatestLottoView: View {
         }
     }
 }
-
 
 #Preview {
     LatestLottoView()
