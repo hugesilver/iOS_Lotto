@@ -20,6 +20,9 @@ struct ContentView: View {
             RecentLottoView()
                 .interactiveDismissDisabled(true)
                 .presentationDetents([.fraction(0.15), .fraction(0.75)])
+                .presentationBackgroundInteraction(
+                    .enabled(upThrough: .fraction(0.15))
+                )
         }
     }
 }
