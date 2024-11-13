@@ -12,37 +12,42 @@ struct RecentLottoView: View {
     @State var recentLottoes: [LottoModel] = []
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(sortRecentLotto(), id: \.self) { recentLotto in
-                    VStack {
-                        Text("\(recentLotto.drwNoDate!) \(recentLotto.drwNo!)회 당첨결과")
-                            .font(.system(size: 24).bold())
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                        
-                        HStack {
-                            ball(number: recentLotto.drwtNo1!)
-                            ball(number: recentLotto.drwtNo2!)
-                            ball(number: recentLotto.drwtNo3!)
-                            ball(number: recentLotto.drwtNo4!)
-                            ball(number: recentLotto.drwtNo5!)
-                            ball(number: recentLotto.drwtNo6!)
-                            Image(systemName: "plus")
-                                .resizable()
-                                .frame(width: 22, height: 22)
-                                .font(Font.title.weight(.medium))
+        VStack(spacing: 8) {
+            Color.clear
+                .frame(height: 16)
+            
+            ScrollView {
+                VStack {
+                    ForEach(sortRecentLotto(), id: \.self) { recentLotto in
+                        VStack {
+                            Text("\(recentLotto.drwNoDate!) \(recentLotto.drwNo!)회 당첨결과")
+                                .font(.system(size: 24).bold())
                                 .foregroundColor(.black)
-                            ball(number: recentLotto.bnusNo!)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                            
+                            HStack {
+                                Ball(number: recentLotto.drwtNo1!)
+                                Ball(number: recentLotto.drwtNo2!)
+                                Ball(number: recentLotto.drwtNo3!)
+                                Ball(number: recentLotto.drwtNo4!)
+                                Ball(number: recentLotto.drwtNo5!)
+                                Ball(number: recentLotto.drwtNo6!)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .frame(width: 22, height: 22)
+                                    .font(Font.title.weight(.medium))
+                                    .foregroundColor(.black)
+                                Ball(number: recentLotto.bnusNo!)
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
-        }
-        .onAppear{
-            getRecentLotto()
+            .onAppear{
+                getRecentLotto()
+            }
         }
     }
     
@@ -88,29 +93,6 @@ struct RecentLottoView: View {
     
     func sortRecentLotto() -> [LottoModel] {
         return recentLottoes.sorted { $0.drwNo! > $1.drwNo! }
-    }
-    
-    func ball(number: Int) -> some View {
-        return Circle()
-            .frame(width: 40, height: 40)
-            .foregroundColor(colors(number: number))
-            .overlay(Text("\(number)")
-                .foregroundColor(.white)
-                .fontWeight(.bold)
-                .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                .minimumScaleFactor(1.0)
-            )
-    }
-    
-    func colors(number: Int) -> Color {
-        switch(number) {
-        case 0: return Color.black
-        case 1...10: return Color.yellow.opacity(0.9)
-        case 11...20: return Color.teal.opacity(0.8)
-        case 21...30: return Color.red.opacity(0.9)
-        case 31...40: return Color.gray
-        default: return Color.green
-        }
     }
 }
 

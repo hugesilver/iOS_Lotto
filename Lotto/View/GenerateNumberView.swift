@@ -20,7 +20,7 @@ struct GenerateNumberView: View {
             
             HStack {
                 ForEach(lottoNumbers.indices, id: \.self) { index in
-                    ball(number: lottoNumbers[index])
+                    Ball(number: lottoNumbers[index])
                 }
             }
             
@@ -45,30 +45,6 @@ struct GenerateNumberView: View {
         }
         
         lottoNumbers = Array(numbers)
-    }
-    
-    func colors(number: Int) -> Color {
-        switch(number) {
-        case 0: return Color.black
-        case 1...10: return Color.yellow.opacity(0.9)
-        case 11...20: return Color.teal.opacity(0.8)
-        case 21...30: return Color.red.opacity(0.9)
-        case 31...40: return Color.gray
-        default: return Color.green
-        }
-    }
-    
-    func ball(number: Int) -> some View {
-        return Circle()
-            .frame(width: 40, height: 40)
-            .foregroundColor(colors(number: number))
-            .overlay(
-                Text("\(number)")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                    .minimumScaleFactor(1.0)
-            )
     }
 }
 

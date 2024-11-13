@@ -14,9 +14,9 @@
 		E2254A902AC2AF81000EE651 /* LottoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A8F2AC2AF81000EE651 /* LottoTests.swift */; };
 		E2254A9A2AC2AF81000EE651 /* LottoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A992AC2AF81000EE651 /* LottoUITests.swift */; };
 		E2254A9C2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2254A9B2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift */; };
-		E278D9CD2AFA191100427617 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9CC2AFA191100427617 /* BottomSheetView.swift */; };
 		E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D02AFA1CF000427617 /* ContentView.swift */; };
 		E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */; };
+		E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */; };
 		E2DC37D22B145DA6006DAF33 /* WinnerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D12B145DA6006DAF33 /* WinnerListViewModel.swift */; };
 		E2DC37D62B145E13006DAF33 /* LottoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D52B145E13006DAF33 /* LottoModel.swift */; };
 /* End PBXBuildFile section */
@@ -49,9 +49,9 @@
 		E2254A952AC2AF81000EE651 /* LottoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2254A992AC2AF81000EE651 /* LottoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoUITests.swift; sourceTree = "<group>"; };
 		E2254A9B2AC2AF81000EE651 /* LottoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E278D9CC2AFA191100427617 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		E278D9D02AFA1CF000427617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentLottoView.swift; sourceTree = "<group>"; };
+		E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		E2DC37D12B145DA6006DAF33 /* WinnerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerListViewModel.swift; sourceTree = "<group>"; };
 		E2DC37D52B145E13006DAF33 /* LottoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				E2254A802AC2AF7F000EE651 /* GenerateNumberView.swift */,
-				E278D9CC2AFA191100427617 /* BottomSheetView.swift */,
 				E278D9D02AFA1CF000427617 /* ContentView.swift */,
 				E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */,
+				E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,8 +301,8 @@
 				E2254A7F2AC2AF7F000EE651 /* LottoApp.swift in Sources */,
 				E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */,
 				E2DC37D22B145DA6006DAF33 /* WinnerListViewModel.swift in Sources */,
+				E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */,
 				E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */,
-				E278D9CD2AFA191100427617 /* BottomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,9 +476,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +486,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.hugesilver.Lotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,9 +512,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +522,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.hugesilver.Lotto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

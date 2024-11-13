@@ -13,11 +13,6 @@ class WinnerListViewModel : ObservableObject{
         // API 요청
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
-                // 데이터 확인
-                // if let jsonString = String(data: data, encoding: .utf8) {
-                //  print("Received JSON data: \(jsonString)")
-                // }
-                
                 do {
                     // LottoModel로 JSON 디코드
                     let decoder = JSONDecoder()
