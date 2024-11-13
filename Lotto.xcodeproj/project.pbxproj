@@ -17,7 +17,7 @@
 		E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D02AFA1CF000427617 /* ContentView.swift */; };
 		E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */; };
 		E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */; };
-		E2DC37D22B145DA6006DAF33 /* WinnerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D12B145DA6006DAF33 /* WinnerListViewModel.swift */; };
+		E2DC37D22B145DA6006DAF33 /* LottoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */; };
 		E2DC37D62B145E13006DAF33 /* LottoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D52B145E13006DAF33 /* LottoModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		E278D9D02AFA1CF000427617 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentLottoView.swift; sourceTree = "<group>"; };
 		E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
-		E2DC37D12B145DA6006DAF33 /* WinnerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerListViewModel.swift; sourceTree = "<group>"; };
+		E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewModel.swift; sourceTree = "<group>"; };
 		E2DC37D52B145E13006DAF33 /* LottoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 		E2DC37D02B145D68006DAF33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E2DC37D12B145DA6006DAF33 /* WinnerListViewModel.swift */,
+				E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 				E2254A812AC2AF7F000EE651 /* GenerateNumberView.swift in Sources */,
 				E2254A7F2AC2AF7F000EE651 /* LottoApp.swift in Sources */,
 				E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */,
-				E2DC37D22B145DA6006DAF33 /* WinnerListViewModel.swift in Sources */,
+				E2DC37D22B145DA6006DAF33 /* LottoViewModel.swift in Sources */,
 				E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */,
 				E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */,
 			);
@@ -476,6 +476,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -512,6 +513,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

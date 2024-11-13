@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecentLottoView: View {
-    @StateObject var viewModel = WinnerListViewModel()
+    @StateObject var viewModel = LottoViewModel()
     @State var recentLottoes: [LottoModel] = []
     
     var body: some View {

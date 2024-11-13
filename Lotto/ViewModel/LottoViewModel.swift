@@ -1,6 +1,6 @@
 import Foundation
 
-class WinnerListViewModel : ObservableObject{
+class LottoViewModel : ObservableObject{
     func fetchLottoNumbers(drawNumber: Int, completion: @escaping (LottoModel?) -> Void) {
         // 로또 API URL
         let urlString = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(drawNumber)"
