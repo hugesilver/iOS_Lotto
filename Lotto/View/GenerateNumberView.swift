@@ -12,7 +12,7 @@ struct GenerateNumberView: View {
     
     var body: some View {
         VStack {
-            Text("로또 번호 생성기")
+            Text("로또 추첨")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.white)

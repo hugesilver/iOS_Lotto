@@ -24,6 +24,8 @@ class LottoViewModel : ObservableObject{
                     
                     completion(nil)
                 }
+                
+                print(String(data: data, encoding: .utf8))
             } else if let error = error {
                 print("API를 불러오는 중 에러 발생: \(error.localizedDescription)")
                 

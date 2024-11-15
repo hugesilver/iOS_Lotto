@@ -23,6 +23,7 @@ struct ContentView: View {
                 .presentationBackgroundInteraction(
                     .enabled(upThrough: .fraction(0.15))
                 )
+                .presentationCornerRadius(16)
         }
     }
 }

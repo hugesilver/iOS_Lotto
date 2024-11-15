@@ -12,7 +12,7 @@ struct Ball: View {
     
     var body: some View {
         Circle()
-            .frame(width: 40, height: 40)
+            .frame(width: 36, height: 36)
             .foregroundColor(colors(number: number))
             .overlay(
                 Text("\(number)")

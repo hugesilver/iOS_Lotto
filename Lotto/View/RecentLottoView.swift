@@ -12,42 +12,54 @@ struct RecentLottoView: View {
     @State var recentLottoes: [LottoModel] = []
     
     var body: some View {
-        VStack(spacing: 8) {
-            Color.clear
-                .frame(height: 16)
-            
-            ScrollView {
-                VStack {
-                    ForEach(sortRecentLotto(), id: \.self) { recentLotto in
-                        VStack {
-                            Text("\(recentLotto.drwNoDate!) \(recentLotto.drwNo!)회 당첨결과")
-                                .font(.system(size: 24).bold())
-                                .foregroundColor(.black)
-                                .multilineTextAlignment(.center)
-                                .padding()
-                            
-                            HStack {
-                                Ball(number: recentLotto.drwtNo1!)
-                                Ball(number: recentLotto.drwtNo2!)
-                                Ball(number: recentLotto.drwtNo3!)
-                                Ball(number: recentLotto.drwtNo4!)
-                                Ball(number: recentLotto.drwtNo5!)
-                                Ball(number: recentLotto.drwtNo6!)
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .frame(width: 22, height: 22)
-                                    .font(Font.title.weight(.medium))
-                                    .foregroundColor(.black)
-                                Ball(number: recentLotto.bnusNo!)
+        NavigationStack {
+            VStack(spacing: 8) {
+                Color.clear
+                    .frame(height: 16)
+                
+                ScrollView {
+                    VStack {
+                        ForEach(sortRecentLotto()) { recentLotto in
+                            NavigationLink(destination: DetailView(model: recentLotto)) {
+                                VStack(spacing: 0) {
+                                    Text("제\(recentLotto.drwNo)회")
+                                        .font(.system(size: 24).bold())
+                                        .foregroundColor(.black)
+                                        .multilineTextAlignment(.center)
+                                    
+                                    Text("\(recentLotto.drwNoDate)")
+                                        .font(.system(size: 14))
+                                        .foregroundColor(.gray)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.top, 4)
+                                    
+                                    HStack {
+                                        Ball(number: recentLotto.drwtNo1)
+                                        Ball(number: recentLotto.drwtNo2)
+                                        Ball(number: recentLotto.drwtNo3)
+                                        Ball(number: recentLotto.drwtNo4)
+                                        Ball(number: recentLotto.drwtNo5)
+                                        Ball(number: recentLotto.drwtNo6)
+                                        Image(systemName: "plus")
+                                            .resizable()
+                                            .frame(width: 16, height: 16)
+                                            .font(Font.title.weight(.medium))
+                                            .foregroundColor(.black)
+                                        Ball(number: recentLotto.bnusNo)
+                                    }
+                                    .padding(.top, 12)
+                                }
+                                .padding(.vertical, 12)
                             }
                         }
-                        .padding()
                     }
                 }
             }
-            .onAppear{
-                getRecentLotto()
-            }
+        }
+        .navigationTitle("")
+        .background(.white)
+        .onAppear{
+            getRecentLotto()
         }
     }
     
@@ -92,7 +104,7 @@ struct RecentLottoView: View {
     }
     
     func sortRecentLotto() -> [LottoModel] {
-        return recentLottoes.sorted { $0.drwNo! > $1.drwNo! }
+        return recentLottoes.sorted { $0.drwNo > $1.drwNo }
     }
 }
 
