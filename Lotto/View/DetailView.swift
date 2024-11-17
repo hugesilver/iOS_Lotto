@@ -73,6 +73,7 @@ struct DetailView: View {
             .padding(.vertical, 8)
         }
         .navigationTitle("")
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
     }
     

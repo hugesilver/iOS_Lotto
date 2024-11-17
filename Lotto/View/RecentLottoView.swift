@@ -53,11 +53,13 @@ struct RecentLottoView: View {
                             }
                         }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.white)
         }
         .navigationTitle("")
-        .background(.white)
         .onAppear{
             getRecentLotto()
         }
