@@ -12,10 +12,24 @@ struct ContentView: View {
     @State private var dimOpacity: Double = 0
     
     var body: some View {
-        ZStack {
-            GenerateNumberView()
+        NavigationStack {
+            ZStack(alignment: .topTrailing) {
+                GenerateNumberView()
+                    .onAppear {
+                        isPresented = true
+                    }
+                
+                NavigationLink(destination: ScannerView()) {
+                    Image(systemName: "qrcode")
+                        .foregroundColor(.white)
+                        .font(.system(size: 28))
+                        .padding(28)
+                }
+                .simultaneousGesture(TapGesture().onEnded {
+                    isPresented = false
+                })
+            }
         }
-        .edgesIgnoringSafeArea(.all)
         .sheet(isPresented: $isPresented) {
             RecentLottoView()
                 .interactiveDismissDisabled(true)

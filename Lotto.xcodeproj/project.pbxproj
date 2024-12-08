@@ -18,6 +18,10 @@
 		E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */; };
 		E2911A092CE7D46200E40DC3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2911A082CE7D46200E40DC3 /* DetailView.swift */; };
 		E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */; };
+		E2AA7C7F2D05933F00225147 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA7C7E2D05933F00225147 /* ScannerView.swift */; };
+		E2AA7C812D05ACCB00225147 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA7C802D05ACCB00225147 /* CameraView.swift */; };
+		E2AA7C832D05BFB600225147 /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA7C822D05BFB600225147 /* QRScannerDelegate.swift */; };
+		E2AA7C872D05FAA700225147 /* ScanResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AA7C862D05FAA700225147 /* ScanResultView.swift */; };
 		E2DC37D22B145DA6006DAF33 /* LottoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */; };
 		E2DC37D62B145E13006DAF33 /* LottoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DC37D52B145E13006DAF33 /* LottoModel.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +59,10 @@
 		E2911A072CE7CE8900E40DC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E2911A082CE7D46200E40DC3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		E2AA7C7E2D05933F00225147 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		E2AA7C802D05ACCB00225147 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		E2AA7C822D05BFB600225147 /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		E2AA7C862D05FAA700225147 /* ScanResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultView.swift; sourceTree = "<group>"; };
 		E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewModel.swift; sourceTree = "<group>"; };
 		E2DC37D52B145E13006DAF33 /* LottoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,10 +151,29 @@
 			path = LottoUITests;
 			sourceTree = "<group>";
 		};
+		E2AA7C842D05F5ED00225147 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA7C7E2D05933F00225147 /* ScannerView.swift */,
+				E2AA7C802D05ACCB00225147 /* CameraView.swift */,
+				E2AA7C862D05FAA700225147 /* ScanResultView.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		E2AA7C852D05F60100225147 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E2DC37D02B145D68006DAF33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E2DC37D12B145DA6006DAF33 /* LottoViewModel.swift */,
+				E2AA7C822D05BFB600225147 /* QRScannerDelegate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -154,10 +181,11 @@
 		E2DC37D32B145DBA006DAF33 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA7C852D05F60100225147 /* Components */,
+				E2AA7C842D05F5ED00225147 /* Scan */,
 				E2254A802AC2AF7F000EE651 /* GenerateNumberView.swift */,
 				E278D9D02AFA1CF000427617 /* ContentView.swift */,
 				E278D9D22AFA1FDC00427617 /* RecentLottoView.swift */,
-				E2A7DD8F2CE4802E00E95BF8 /* Ball.swift */,
 				E2911A082CE7D46200E40DC3 /* DetailView.swift */,
 			);
 			path = View;
@@ -301,13 +329,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2AA7C7F2D05933F00225147 /* ScannerView.swift in Sources */,
 				E2DC37D62B145E13006DAF33 /* LottoModel.swift in Sources */,
 				E2911A092CE7D46200E40DC3 /* DetailView.swift in Sources */,
+				E2AA7C812D05ACCB00225147 /* CameraView.swift in Sources */,
 				E2254A812AC2AF7F000EE651 /* GenerateNumberView.swift in Sources */,
+				E2AA7C832D05BFB600225147 /* QRScannerDelegate.swift in Sources */,
 				E2254A7F2AC2AF7F000EE651 /* LottoApp.swift in Sources */,
 				E278D9D12AFA1CF000427617 /* ContentView.swift in Sources */,
 				E2DC37D22B145DA6006DAF33 /* LottoViewModel.swift in Sources */,
 				E2A7DD902CE4802E00E95BF8 /* Ball.swift in Sources */,
+				E2AA7C872D05FAA700225147 /* ScanResultView.swift in Sources */,
 				E278D9D32AFA1FDC00427617 /* RecentLottoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
