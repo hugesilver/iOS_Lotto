@@ -67,7 +67,7 @@ struct ScannerView: View {
             
         }
         .navigationDestination(isPresented: $qrDelegate.isPresented) {
-            ScanResultView(scannedCode: qrDelegate.scannedCode, splitedString: qrDelegate.splitedString)
+            ScanResultView(scannedCode: qrDelegate.scannedCode, splitedStrings: qrDelegate.splitedString)
         }
     }
     

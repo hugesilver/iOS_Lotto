@@ -1,12 +1,12 @@
 import Foundation
 
-class LottoViewModel : ObservableObject{
+class LottoViewModel: ObservableObject{
     func fetchLottoNumbers(drawNumber: Int, completion: @escaping (LottoModel?) -> Void) {
         // 로또 API URL
         let urlString = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(drawNumber)"
         
         guard let url = URL(string: urlString) else {
-            print("Error: cannot create URL")
+            print("URL 생성 실패")
             return
         }
         
@@ -21,14 +21,10 @@ class LottoViewModel : ObservableObject{
                     completion(lottoModel)
                 } catch {
                     print("JSON 파싱 에러: \(error.localizedDescription)")
-                    
                     completion(nil)
                 }
-                
-                print(String(data: data, encoding: .utf8))
             } else if let error = error {
                 print("API를 불러오는 중 에러 발생: \(error.localizedDescription)")
-                
                 completion(nil)
             }
         }
