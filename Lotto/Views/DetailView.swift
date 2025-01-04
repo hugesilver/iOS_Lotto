@@ -76,14 +76,6 @@ struct DetailView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
     }
-    
-    func convertToCommas(_ number: Int) -> String? {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        let formattedNumber = numberFormatter.string(from: NSNumber(value: number))
-        
-        return formattedNumber
-    }
 }
 
 #Preview {

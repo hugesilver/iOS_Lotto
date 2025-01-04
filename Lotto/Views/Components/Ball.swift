@@ -69,7 +69,3 @@ struct ResultBall: View {
         }
     }
 }
-
-#Preview {
-    Ball(number: 0)
-}

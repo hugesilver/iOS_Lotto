@@ -135,8 +135,6 @@ struct ScannerView: View {
         }
     }
     
-    
-    
     // QR 스캐너 재설정
     func resetCameraSetting() {
         qrDelegate.scannedCode = ""

@@ -165,14 +165,6 @@ struct ScanResultView: View {
         }
     }
     
-    func convertToCommas(_ number: Int) -> String? {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        let formattedNumber = numberFormatter.string(from: NSNumber(value: number))
-        
-        return formattedNumber
-    }
-    
     // 선택한 번호 일치 확인
     func calcResult() {
         // splitedStrings의 첫번째 요소를 제외한 반복문 실행
