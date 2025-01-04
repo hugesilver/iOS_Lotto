@@ -20,13 +20,6 @@ struct ScannerView: View {
     // QR 코드 스캐너 AV 출력
     @State private var qrOutput: AVCaptureMetadataOutput = .init()
     
-    // 알림창
-    @State private var message: String = ""
-    @State private var showAlert: Bool = false
-    
-    // QR 스캔된 코드
-    @State private var scannedCode: String = ""
-    
     
     var body: some View {
         ZStack {
@@ -55,35 +48,27 @@ struct ScannerView: View {
             )
         }
         .onAppear {
-            checkCameraPermission()
+            resetCameraSetting()
         }
-        .onDisappear {
-            session.stopRunning()
-            clearSession()
-        }
-        .alert(isPresented: $showAlert) {
+        .alert(isPresented: $qrDelegate.showAlert) {
             Alert(
                 title: Text("오류"),
-                message: Text(message),
-                primaryButton: .default(Text("설정으로 이동")) {
-                    let settingString = UIApplication.openSettingsURLString
-                    if let settingsURL = URL(string: settingString) {
-                        openURL(settingsURL)
-                    }
-                },
-                secondaryButton: .cancel(Text("취소")) {
-                    dismiss()
+                message: Text(qrDelegate.message),
+                dismissButton: .default(Text("확인")) {
+                    resetCameraSetting()
                 }
             )
         }
         .onChange(of: qrDelegate.scannedCode) { code in
-            if let scanned = code {
-                scannedCode = scanned
+            if !code.isEmpty {
                 session.stopRunning()
-                qrDelegate.scannedCode = nil
+                qrDelegate.splitString(code: code)
             }
+            
         }
-        
+        .navigationDestination(isPresented: $qrDelegate.isPresented) {
+            ScanResultView(scannedCode: qrDelegate.scannedCode, splitedString: qrDelegate.splitedString)
+        }
     }
     
     // 카메라 설정
@@ -91,14 +76,14 @@ struct ScannerView: View {
         do {
             guard let device = AVCaptureDevice.DiscoverySession(
                 deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back).devices.first else {
-                showError("알 수 없는 오류가 발생하였습니다.")
+                qrDelegate.showError("알 수 없는 오류가 발생하였습니다.")
                 return
             }
             
             let input = try AVCaptureDeviceInput(device: device)
             
             guard session.canAddInput(input), session.canAddOutput(qrOutput) else {
-                showError("알 수 없는 오류가 발생하였습니다.")
+                qrDelegate.showError("알 수 없는 오류가 발생하였습니다.")
                 return
             }
             
@@ -116,14 +101,8 @@ struct ScannerView: View {
                 session.startRunning()
             }
         } catch {
-            showError(error.localizedDescription)
+            qrDelegate.showError(error.localizedDescription)
         }
-    }
-    
-    // 오류 메시지 알림창 출력
-    func showError(_ message: String) {
-        self.message = message
-        showAlert.toggle()
     }
     
     // 카메라 권한 체크
@@ -136,10 +115,10 @@ struct ScannerView: View {
                 if await AVCaptureDevice.requestAccess(for: .video) {
                     setupCamera()
                 } else {
-                    showError("카메라 허용이 필요합니다.")
+                    qrDelegate.showError("카메라 허용이 필요합니다.")
                 }
             case .denied, .restricted:
-                showError("카메라 허용이 필요합니다.")
+                qrDelegate.showError("카메라 허용이 필요합니다.")
             default: break
             }
         }
@@ -154,6 +133,17 @@ struct ScannerView: View {
         for output in session.outputs {
             session.removeOutput(output)
         }
+    }
+    
+    
+    
+    // QR 스캐너 재설정
+    func resetCameraSetting() {
+        qrDelegate.scannedCode = ""
+        qrDelegate.splitedString = []
+        
+        clearSession()
+        checkCameraPermission()
     }
 }
 
