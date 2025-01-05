@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isPresented = true
-    @State private var dimOpacity: Double = 0
     
     var body: some View {
         NavigationStack {

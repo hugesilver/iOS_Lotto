@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// 일반 공
 struct Ball: View {
     let number: Int
     
@@ -36,6 +37,7 @@ struct Ball: View {
     }
 }
 
+// 당첨결과 확인 공
 struct ResultBall: View {
     let number: Int
     let isSelected: Bool

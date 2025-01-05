@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RecentLottoView: View {
-    @StateObject var viewModel = LottoViewModel()
-    @State var recentLottoes: [LottoModel] = []
+    @StateObject private var viewModel = LottoViewModel()
+    @State private var recentLottoes: [LottoModel] = []
     
     var body: some View {
         NavigationStack {
@@ -65,7 +65,8 @@ struct RecentLottoView: View {
         }
     }
     
-    func calculateWeeksPassed() -> Int {
+    // 최근 10주차 계산
+    private func calculateWeeksPassed() -> Int {
         // 로또 첫 추첨 날짜 2002.12.7
         let startDate = Calendar.current.date(from: DateComponents(year: 2002, month: 12, day: 7))!
         
@@ -87,7 +88,8 @@ struct RecentLottoView: View {
         return weeksPassed
     }
     
-    func getRecentLotto() {
+    // 최근 10주의 로또 데이터 불러오기
+    private func getRecentLotto() {
         let weeksPassed = calculateWeeksPassed()
         
         for i in 0...10 {
@@ -105,7 +107,8 @@ struct RecentLottoView: View {
         }
     }
     
-    func sortRecentLotto() -> [LottoModel] {
+    // 불러온 로또 데이터 주차별 정렬
+    private func sortRecentLotto() -> [LottoModel] {
         return recentLottoes.sorted { $0.drwNo > $1.drwNo }
     }
 }
