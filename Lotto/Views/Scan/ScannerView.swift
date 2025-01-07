@@ -50,6 +50,9 @@ struct ScannerView: View {
         .onAppear {
             resetCameraSetting()
         }
+        .onDisappear {
+            session.stopRunning()
+        }
         .alert(isPresented: $qrDelegate.showAlert) {
             Alert(
                 title: Text("오류"),
