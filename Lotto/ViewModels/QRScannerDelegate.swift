@@ -36,7 +36,7 @@ class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObje
     }
     
     func splitString(code: String) {
-        let regexPattern = #"^http://m\.dhlottery\.co\.kr/\?v=(\d{1,5})(?:q(\d{12}))*q(\d{22})$"#
+        let regexPattern = #"^http://m\.dhlottery\.co\.kr/\?v=(\d{1,5})q(\d{12})(q\d{12})*(n\d{12})*(q|n)(\d{22})$"#
         
         do {
             let regex = try NSRegularExpression(pattern: regexPattern)
