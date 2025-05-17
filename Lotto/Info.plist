@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>로또 판매점 및 사용자 현위지 정보를 사용하기 위해 권한이 필요합니다.</string>
+	<key>NCP_KEY_ID</key>
+	<string>$(NCP_KEY_ID)</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>NSCameraUsageDescription</key>

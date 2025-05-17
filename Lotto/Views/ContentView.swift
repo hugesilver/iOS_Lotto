@@ -17,16 +17,30 @@ struct ContentView: View {
                     .onAppear {
                         isPresented = true
                     }
+                    .onDisappear {
+                        isPresented = false
+                    }
                 
-                NavigationLink(destination: ScannerView()) {
-                    Image(systemName: "qrcode")
-                        .foregroundColor(.white)
-                        .font(.system(size: 28))
-                        .padding(28)
+                HStack(spacing: 16) {
+                    NavigationLink(destination: MapView()) {
+                        Image(systemName: "map")
+                            .foregroundColor(.white)
+                            .font(.system(size: 28))
+                    }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        isPresented = false
+                    })
+                    
+                    NavigationLink(destination: ScannerView()) {
+                        Image(systemName: "qrcode")
+                            .foregroundColor(.white)
+                            .font(.system(size: 28))
+                    }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        isPresented = false
+                    })
                 }
-                .simultaneousGesture(TapGesture().onEnded {
-                    isPresented = false
-                })
+                .padding(28)
             }
         }
         .sheet(isPresented: $isPresented) {
