@@ -36,31 +36,23 @@ class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObje
     }
     
     func splitString(code: String) {
-        let regexPattern = #"^http://m\.dhlottery\.co\.kr/\?v=(\d{1,5})q(\d{12})(q\d{12})*(n\d{12})*(q|n)(\d{22})$"#
+        let regexPattern = #"^https?://m\.dhlottery\.co\.kr/\?v=(\d{1,5})m(\d{12})(m\d{12})*(n\d{12})*(m|n)(\d{22})$"#
         
         do {
             let regex = try NSRegularExpression(pattern: regexPattern)
             let range = NSRange(code.startIndex..., in: code)
             
             if regex.firstMatch(in: code, range: range) != nil {
-                // q 기준으로 문자열 나눔
-                var splitByQ = code.components(separatedBy: "q")
+                // url 내 번호 추출
+                let prepare = code.components(separatedBy: "?v=")[1]
+                var splited = prepare.components(separatedBy: "m")
                 
-                // 첫번째 요소의 링크 제거
-                if let firstElement = splitByQ.first, let vRange = firstElement.range(of: "?v=") {
-                    splitByQ[0] = String(firstElement[vRange.upperBound...])
+                if let lastElement = splited.last?.components(separatedBy: "n") {
+                    splited[splited.count - 1] = String(lastElement.first!.prefix(12))
                 }
-                
-                // 마지막 요소의 12자 추출
-                if let lastElement = splitByQ.last {
-                    let trimmedLast = lastElement.prefix(12)
-                    splitByQ[splitByQ.count - 1] = String(trimmedLast)
-                }
-                
-                let result = splitByQ.map { String($0) }
                 
                 // 분할 가공한 문자열 삽입
-                splitedString = result
+                splitedString = splited
                 
                 // 스캔 결과 뷰 이동
                 self.isPresented = true
