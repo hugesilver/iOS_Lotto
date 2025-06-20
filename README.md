@@ -60,8 +60,7 @@
 
 ## 기술 스택
 
-<img src="https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=Swift&logoColor=white" />
-<img src="https://img.shields.io/badge/SwiftUI-524520?logo=swift" />
+<img src="https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=Swift&logoColor=white" /> <img src="https://img.shields.io/badge/SwiftUI-524520?logo=swift" />
 
 ## 외부 패키지
 
