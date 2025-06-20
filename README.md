@@ -5,6 +5,7 @@
 <p align="center">
   <img src="readme/logo_main.jpg" width="300px" height="300px" />
   <br />
+  <br />
   간편하게 로또 번호를 자동 생성하고, 최근 10회의 당첨 결과를 확인하세요!
 </p>
 
